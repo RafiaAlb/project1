@@ -1,0 +1,10 @@
+package week2;
+
+public class Student extends Person {
+
+	public Student(String name, int age, String nationality, String dOB) {
+		super(name, age, nationality, dOB);
+		// TODO Auto-generated constructor stub
+	}
+
+}

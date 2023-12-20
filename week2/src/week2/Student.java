@@ -1,0 +1,34 @@
+package week2;
+
+public class Student extends Person {
+int ID;
+String Major;
+Double Grade;
+int Attendance;
+	public Student(String name, int age, String nationality, String dOB , int id , String major , int attendance , double grade) {
+		super(name, age, nationality, dOB);
+		
+			ID=id;
+			Major=major;
+			Grade=grade;
+			Attendance=attendance;
+			
+		}
+		
+		
+		public void study() {
+			System.out.println(Name+" is studying "+Major);
+			
+		}
+		public void code() {
+			System.out.println(Name+" is coding and scored "+Grade);
+			
+		}	
+		public void project() {
+			System.out.println(Name+" with the Id: "+ID+" is working on the project with the attendance "+Attendance);
+			
+		}
+	
+	
+	
+}

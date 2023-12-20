@@ -1,0 +1,7 @@
+package com.eif.repo;
+
+public interface Product_Repo extends {
+JpaRepository<Product , Integer>{
+	
+}
+}

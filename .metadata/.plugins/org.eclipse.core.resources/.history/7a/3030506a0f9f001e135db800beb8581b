@@ -1,0 +1,56 @@
+package com.eif.cotroller;
+
+import java.util.List;
+
+import com.eif.data.Orders;
+import com.eif.service.Autowired;
+import com.eif.service.OrederService;
+
+@RestController
+
+public class OredersController {
+	@Autowired
+	private OrederService os ;
+
+
+	@GetMapping("/Orders")
+	public List<Orders> FindAll(){
+		
+		return os.getOrders();
+	}
+
+	//add user to the data base
+	@RequestMapping(method = RequestMethod.GET,value="/addOrder")
+	public void AddOrder(@RequestBody Orders o) {
+	    	os.saveOrder(o);
+	}
+
+	@RequestMapping("/Orders/{BrandName}")
+	public Orders findbyBrandName(@PathVariable String BrandName ) {
+		return os.getCars_byBrandName(BrandName);
+	}
+
+	@GetMapping("/Orders/{Seats}")
+	public Orders findbySeats(@PathVariable int Seats ) {
+		return os.getCars_bySeats(Seats);
+	}
+
+	@RequestMapping("/Orders/{Size}")
+	public Orders findbySize(@PathVariable String Size ) {
+		return os.getCars_bySize( Size);
+	}
+	@GetMapping("/Orders/{Extras}")
+	public Orders findbyex(@PathVariable String Extras ) {
+		return os.getCars_byExtras(Extras);
+	}
+
+	public void deletebyID (@PathVariable int Id) {
+		os.delete(Id);
+	}
+
+
+
+	}
+
+
+}

@@ -1,0 +1,13 @@
+package week2;
+
+public class Test_Person {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Person p1= new Person ("Rafia",22,"UAE","27/11/2000");
+p1.Eat();
+p1.walk();
+p1.Sleep();
+	}
+
+}

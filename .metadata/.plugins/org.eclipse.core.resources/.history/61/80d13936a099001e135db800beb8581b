@@ -1,0 +1,15 @@
+package com.eif.service;
+
+import java.util.Arrays;
+
+public class StudentService {
+
+private List<Student> st = new ArrayList<>(Arrays.asList) {
+	new Student ("Aman" , 25,"Dubai","UAE","IT"),
+	new Student ("Altaf" , 35,"Alain","UAE","IT"),
+	new Student ("Rakesh" , 27,"Abu dhabi","UAE","IT"),
+	}
+public List <Student> getAllStudents(){
+	return st;
+}
+}

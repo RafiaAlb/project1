@@ -1,0 +1,54 @@
+package com.eif.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.eif.data.User;
+import com.eif.repo.User_Repo;
+
+@Service
+public class UserService {
+
+
+	@Autowired
+	private User_Repo us;
+	public List<User> getUsers(){
+		return us.findAll();
+	}
+	
+	public User getUser_byName(String name) {
+		return null;
+	}
+	
+	public User getUser_byId(int Id) {
+		
+		return   user_list.stream()
+				.filter(s->s.getId()==Id)
+				.findFirst().get();
+	}
+	
+	public void addUser(User st) {
+		 user_list.add(st);
+	}
+	
+	public void updateUser(User st) {
+		for(int i=0;i< user_list.size();i++) {
+			if( user_list.get(i).getId() ==st.getId()) {
+				 user_list.set(i, st);
+				return;
+				}
+			}
+		 user_list.add(st);
+		return;
+	}
+	
+	public void DeleteUser_byName(String Name) {
+		 user_list.removeIf(s->s.getName().equalsIgnoreCase(Name));
+	}
+	
+	
+}
+	
+}

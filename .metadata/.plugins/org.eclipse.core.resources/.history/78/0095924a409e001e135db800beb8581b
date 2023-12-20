@@ -1,0 +1,10 @@
+package com.eif.data;
+
+public class User {
+
+	public void add(User us) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

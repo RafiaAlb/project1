@@ -1,0 +1,53 @@
+package com.eif.service;
+
+
+@Service
+public class UserService {
+
+	private List<User> user_list = new ArrayList<User>(Arrays.asList(
+			new User( "Aman",25,"Dubai","UAE","IT"),
+			new User( "Altaf",35,"Abu Dhabi","UAE","IT"),
+			new User( "Rakesh",27,"London","Uk","IT"))); 
+	
+	public List<User> getAllStudents(){
+		return  user_list;
+		}
+	
+	public User getUser_byName(String Name) {
+		User us;
+		st= user_list.stream()
+				.filter(s->s.getName().equalsIgnoreCase(Name))
+				.findFirst().get();
+		return us;
+	}
+	
+	public User getUser_byId(int Id) {
+		
+		return   user_list.stream()
+				.filter(s->s.getId()==Id)
+				.findFirst().get();
+	}
+	
+	public void addUser(User st) {
+		 user_list.add(st);
+	}
+	
+	public void updateUser(User st) {
+		for(int i=0;i< user_list.size();i++) {
+			if( user_list.get(i).getId() ==st.getId()) {
+				 user_list.set(i, st);
+				return;
+				}
+			}
+		 user_list.add(st);
+		return;
+	}
+	
+	public void DeleteUser_byName(String Name) {
+		 user_list.removeIf(s->s.getName().equalsIgnoreCase(Name));
+	}
+	
+	
+}
+	
+}

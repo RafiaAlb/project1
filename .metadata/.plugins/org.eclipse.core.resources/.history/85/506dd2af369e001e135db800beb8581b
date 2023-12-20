@@ -1,0 +1,33 @@
+package com.eif.controller;
+
+
+
+@RestController
+public class UserController {
+@Autowired
+private ProdectService ps ;
+
+@GetMapping("/products")
+public List<Product> FindAllProducts(){
+	return ps.getProducts();
+}
+
+//add product to the db
+@RequestMapping(method = RequestMethod.GET,value="/addproduct")
+public void AddProduct(@RequestBody Product p) {
+    	ps.saveProduct(p);
+}
+
+@GetMapping("/products/{Id}")
+public Product findbyId(@PathVariable int Id) {
+	return ps.getbyId(Id);
+}
+
+
+public void deletebyID (@PathVariable int Id) {
+	ps.delete(Id);
+}
+
+
+
+}

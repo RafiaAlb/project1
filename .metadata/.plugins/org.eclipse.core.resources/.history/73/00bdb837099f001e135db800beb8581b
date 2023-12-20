@@ -1,0 +1,56 @@
+package com.eif.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.eif.data.Cars;
+import com.eif.repo.Cars_Repo;
+
+
+
+
+public class CarService {
+	@Autowired
+	private Cars_Repo cs;
+	public List<Cars> getUsers(){
+		return cs.findAll();
+	}
+		public Cars getCars_byName(String name) {
+			return null;
+		}
+		
+		
+		public void addUser(Cars cs) {
+			cs.add(cs);
+		}
+
+		//id or name?
+		public void delete (int id) {
+			cs.deleteById(id);
+		}
+
+		public Cars saveUser(Cars c) {
+			return cs.save(c);
+			
+		}
+
+		public Cars getCars_byPhoneNumber(int num) {
+			// TODO Auto-generated method stub
+			return cs.getCars_byPhoneNumber(num);
+		}
+
+		public Cars getCars_byAddress(String address) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+
+		public Cars getCars_byDOB(int dOB) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	}
+		

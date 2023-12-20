@@ -1,0 +1,57 @@
+package com.eif.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+
+public class CarsController {
+	@Autowired
+	private CarsService cs ;
+
+	@GetMapping("/users")
+	public List<Cars> FindAll(){
+		return cs.getUsers();
+	}
+
+	//add user to the data base
+	@RequestMapping(method = RequestMethod.GET,value="/adduser")
+	public void AddUser(@RequestBody User u) {
+	    	us.saveUser(u);
+	}
+
+	@RequestMapping("/users/{Name}")
+	public User findbyName(@PathVariable String Name ) {
+		return us.getUser_byName(Name);
+	}
+
+	@GetMapping("/users/{PhoneNumber}")
+	public User findbyPhoneNumber(@PathVariable int PhoneNumber ) {
+		return us.getUser_byPhoneNumber(PhoneNumber);
+	}
+
+	@RequestMapping("/users/{Address}")
+	public User findbyAddress(@PathVariable String Address ) {
+		return us.getUser_byAddress(Address);
+	}
+	@GetMapping("/users/{DOB}")
+	public User findbyDOB(@PathVariable int DOB ) {
+		return us.getUser_byDOB(DOB);
+	}
+
+	public void deletebyID (@PathVariable int Id) {
+		us.delete(Id);
+	}
+
+
+
+	}
+}

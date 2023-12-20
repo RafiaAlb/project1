@@ -1,0 +1,23 @@
+package database_test;
+import java.sql.*;
+
+public class Db_Test {
+	   public static void main(String[] args) {
+		   String url="";
+		   String username = "";
+		   String password="";
+		 //import libraries
+		   //load the drivers
+		   
+		   try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection(url,username,password);
+
+		} catch (ClassNotFoundException  |SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}}}
+		   
+		   //create a connection and open it
+		   
+		

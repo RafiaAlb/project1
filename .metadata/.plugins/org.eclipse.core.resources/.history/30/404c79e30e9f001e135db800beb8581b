@@ -1,0 +1,72 @@
+package com.eif.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.eif.data.Cars;
+import com.eif.service.CarService;
+
+
+@RestController
+
+public class CarsController {
+	@Autowired
+	private CarService cs ;
+
+
+	@GetMapping("/Cars")
+	public List<Cars> FindAll(){
+		return cs.getCars();
+	}
+
+	//add user to the data base
+	@RequestMapping(method = RequestMethod.GET,value="/addCars")
+	public void AddCars(@RequestBody Cars c) {
+	    	cs.saveCar(c);
+	}
+
+	@RequestMapping("/Cars/{BrandName}")
+	public Cars findbyBrandName(@PathVariable String BrandName ) {
+		return cs.getCars_byBrandName(BrandName);
+	}
+
+	@RequestMapping("/Cars/{Size}")
+	public Cars findbySize(@PathVariable String Size ) {
+		return cs.getCars_bySize( Size);
+	}
+	
+	@RequestMapping("/Cars/{Model}")
+	public Cars findbyModel(@PathVariable String Model ) {
+		return cs.getCars_byModel( Model);
+	}
+	
+	@GetMapping("/Cars/{Seats}")
+	public Cars findbySeats(@PathVariable int Seats ) {
+		return cs.getCars_bySeats(Seats);
+	}
+
+	@GetMapping("/Cars/{PricePerDay}")
+	public Cars findbyPricePerDay(@PathVariable int PricePerDay ) {
+		return cs.getCars_byPricePerDay(PricePerDay);
+	}
+	
+	@GetMapping("/Cars/{Extras}")
+	public Cars findbyex(@PathVariable String Extras ) {
+		return cs.getCars_byExtras(Extras);
+	}
+
+	public void deletebyID (@PathVariable int Id) {
+		cs.delete(Id);
+	}
+
+
+
+	}
+

@@ -1,0 +1,29 @@
+package com.eif.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.eif.data.*;
+import com.eif.service.ProdectService;
+
+@RestController
+public class productController {
+@Autowired
+private ProdectService ps ;
+
+@GetMapping("/products")
+public List<Product> FindAllProducts(){
+	return ps.getProducts();
+}
+@RequestMapping(method = RequestMethod.GET,value="/addproduct")
+public void AddProduct(@RequestBody Product p) {
+    	ps.saveProduct(p);
+}
+
+}

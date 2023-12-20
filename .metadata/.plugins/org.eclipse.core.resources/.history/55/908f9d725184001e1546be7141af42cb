@@ -1,0 +1,17 @@
+package week2;
+
+public class run_exception {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Test_exception te = new Test_exception();
+
+try {
+te.div(24, 0);
+	}catch (Exception e) {
+		
+		System.out.print(e.getMessage());
+		te.div(24, 1);
+	}
+
+}}

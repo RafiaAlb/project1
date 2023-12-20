@@ -1,0 +1,15 @@
+package com.eif.repo;
+
+import java.util.List;
+
+import com.eif.data.Cars;
+
+public interface Cars_Repo {
+
+	List<Cars> findAll();
+
+	void deleteById(int id);
+
+	Cars save(Cars c);
+
+}
